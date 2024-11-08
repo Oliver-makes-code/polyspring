@@ -15,7 +15,7 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"de.olivermakesco.polyspring.PolySpringMod"
+			"de.olivermakesco.polyspring.impl.PolySpringMod"
 		]
 	},
 	"mixins": [

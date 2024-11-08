@@ -49,10 +49,10 @@ dependencies {
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation include("eu.pb4:polymer-core:0.10.0+1.21.2")
-	compileOnly('org.geysermc.geyser:api:2.4.2-SNAPSHOT')
-	modImplementation files("./Geyser-Fabric.jar")
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api}"
+	modImplementation include("eu.pb4:polymer-core:${project.polymer_api}")
+	compileOnly("org.geysermc.geyser:api:${project.geyser_api}")
+	compileOnly("org.geysermc.floodgate:api:${project.floodgate_api}")
 }
 
 processResources {
