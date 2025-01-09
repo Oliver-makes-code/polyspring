@@ -16,8 +16,12 @@ import org.geysermc.geyser.api.GeyserApi;
 import org.geysermc.geyser.api.event.EventRegistrar;
 import org.geysermc.geyser.api.event.lifecycle.GeyserDefineCustomItemsEvent;
 import org.geysermc.geyser.api.item.custom.NonVanillaCustomItemData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class PolySpringMod implements ModInitializer, EventRegistrar {
+    public static final Logger LOGGER = LoggerFactory.getLogger("Polysprint");
+
     public static Item test;
 
     @Override
@@ -45,6 +49,8 @@ public class PolySpringMod implements ModInitializer, EventRegistrar {
             var item = entry.getValue();
             if (!(item instanceof BedrockItem bedrockItem))
                 continue;
+
+            LOGGER.info("Registering bedrock item: {}", location);
 
             NonVanillaCustomItemData data = NonVanillaCustomItemData.builder()
                     .name(bedrockItem.getBedrockName())
