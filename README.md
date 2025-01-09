@@ -2,6 +2,9 @@
 
 A Polymer style library for adding content to Bedrock (via Geyser)
 
+You can safely embed this library in your mod, without requiring Geyser.
+If it doesn't work without Geyser, open an issue and send me your log.
+
 It is currently a work in progress. I'm currently adding features I need for my serverside mods.
 If you want to add support for other things, send a Pull Request
 
