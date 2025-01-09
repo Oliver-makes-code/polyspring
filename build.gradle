@@ -50,7 +50,6 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api}"
-	modImplementation include("eu.pb4:polymer-core:${project.polymer_api}")
 	compileOnly("org.geysermc.geyser:api:${project.geyser_api}")
 }
 
