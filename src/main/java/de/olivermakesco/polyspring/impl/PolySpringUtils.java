@@ -33,4 +33,14 @@ public class PolySpringUtils {
             return isGeyserPlayerReal(player);
         return false;
     }
+
+    private static void registerGeyserEventsReal() {
+        var events = new GeyserEvents();
+        GeyserApi.api().eventBus().register(events, events);
+    }
+
+    public static void registerGeyserEvents() {
+        if (isGeyserLoaded())
+            registerGeyserEventsReal();
+    }
 }

@@ -14,13 +14,8 @@ public class TestItem extends SimplePolymerItem implements BedrockItem {
     }
 
     @Override
-    public String getBedrockName() {
+    public String bedrockName() {
         return "test";
-    }
-
-    @Override
-    public boolean allowOffhand() {
-        return true;
     }
 
     @Override
