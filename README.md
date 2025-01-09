@@ -20,3 +20,26 @@ public class MyItem extends Item implements BedrockItem {
     }
 }
 ```
+
+## Checking if a player is connected via Geyser (Polymer Example)
+- Use `GeyserPlayers.isGeyserPlayer`, it doesn't need Geyser loaded to work.
+
+```java
+public class MyItem extends SimplePolymerItem implements BedrockItem {
+    //...
+    
+    @Override
+    public Item getPolymerItem(ItemStack itemStack, PacketContext context) {
+        if (GeyserPlayers.isGeyserPlayer(context.getPlayer()))
+            return this;
+        return super.getPolymerItem(itemStack, context);
+    }
+
+    @Override
+    public ItemStack getPolymerItemStack(ItemStack itemStack, TooltipFlag tooltipType, PacketContext context) {
+        if (GeyserPlayers.isGeyserPlayer(context.getPlayer()))
+            return itemStack;
+        return super.getPolymerItemStack(itemStack, tooltipType, context);
+    }
+}
+```
