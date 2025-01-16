@@ -18,6 +18,7 @@
 			"de.olivermakesco.polyspring.impl.PolySpringMod"
 		]
 	},
+	"accessWidener" : "polyspring.accesswidener",
 	"mixins": [
 		"polyspring.mixins.json"
 	],
