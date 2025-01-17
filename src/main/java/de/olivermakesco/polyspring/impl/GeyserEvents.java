@@ -2,8 +2,8 @@ package de.olivermakesco.polyspring.impl;
 
 import de.olivermakesco.polyspring.api.BedrockBlock;
 import de.olivermakesco.polyspring.api.BedrockItem;
-import de.olivermakesco.polyspring.mixin.CollisionShapeAccessor;
-import de.olivermakesco.polyspring.mixin.ShapeCacheAccessor;
+import de.olivermakesco.polyspring.mixin.Accessor_CollisionShape;
+import de.olivermakesco.polyspring.mixin.Accessor_ShapeCache;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentMap;
@@ -57,8 +57,8 @@ public class GeyserEvents implements EventRegistrar {
 
             DataComponentMap components = item.components();
 
-            if (item instanceof ArmorInfo armor) {
-                switch (armor.getArmorType()) {
+            if (item instanceof Duck_ArmorInfo armor) {
+                switch (armor.polyspring$getArmorType()) {
                     case HELMET -> {
                         data.hat(true);
                         data.armorType("helmet");
@@ -68,10 +68,10 @@ public class GeyserEvents implements EventRegistrar {
                     case BOOTS -> data.armorType("boots");
                     case BODY -> data.armorType("body");
                 }
-                data.protectionValue(armor.getArmorMaterial().defense().get(armor.getArmorType()));
+                data.protectionValue(armor.polyspring$getArmorMaterial().defense().get(armor.polyspring$getArmorType()));
             }
 
-            if (item instanceof ToolMaterialInterface tool) {
+            if (item instanceof Duck_ToolMaterialInterface tool) {
                 data.displayHandheld(true);
 
                 switch (item) {
@@ -82,7 +82,7 @@ public class GeyserEvents implements EventRegistrar {
                     default -> data.toolType("shovel");
                 }
 
-                ToolMaterial material = tool.getToolMaterial();
+                ToolMaterial material = tool.polyspring$getToolMaterial();
                 if (material.equals(ToolMaterial.WOOD)) {
                     data.toolTier("wood");
                 } else if (material.equals(ToolMaterial.STONE)) {
@@ -119,7 +119,7 @@ public class GeyserEvents implements EventRegistrar {
     }
 
     @Subscribe
-    public void onDefineCustomBlocks(GeyserDefineCustomBlocksEvent event) {
+    public void onGeyserDefineCustomBlocksEvent(GeyserDefineCustomBlocksEvent event) {
         // Iterate through all blocks and register them if they implement BedrockBlock interface
         for (var entry : BuiltInRegistries.BLOCK.entrySet()) {
             var location = entry.getKey().location();
@@ -144,12 +144,12 @@ public class GeyserEvents implements EventRegistrar {
                     );
                 }
             } else {
-                BlockBehaviour.BlockStateBase.Cache cache = ((ShapeCacheAccessor)block.defaultBlockState()).getShapeCache();
-                boolean isFullCube = ((CollisionShapeAccessor) (Object) cache).getIsFullCube();
+                BlockBehaviour.BlockStateBase.Cache cache = ((Accessor_ShapeCache)block.defaultBlockState()).getShapeCache();
+                boolean isFullCube = ((Accessor_CollisionShape) (Object) cache).getIsFullCube();
                 if (isFullCube) {
                     collisionBox = BoxComponent.fullBox();
                 } else {
-                    VoxelShape collisionShape = ((CollisionShapeAccessor) (Object) cache).getCollisionShape();
+                    VoxelShape collisionShape = ((Accessor_CollisionShape) (Object) cache).getCollisionShape();
                     if (collisionShape != null && !collisionShape.isEmpty()) {
                         AABB bounding = collisionShape.bounds();
                         collisionBox = new BoxComponent(

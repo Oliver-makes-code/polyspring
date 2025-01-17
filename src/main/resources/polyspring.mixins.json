@@ -3,9 +3,14 @@
   "package": "de.olivermakesco.polyspring.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "Accessor_CollisionShape",
+    "Accessor_ShapeCache",
     "ArmorItemMixin",
     "CollisionShapeAccessor",
     "DiggerItemMixin",
+    "Mixin_ArmorItem",
+    "Mixin_DiggerItem",
+    "Mixin_SwordItem",
     "ShapeCacheAccessor",
     "SwordItemMixin"
   ],

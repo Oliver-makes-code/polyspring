@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(BlockBehaviour.BlockStateBase.class)
-public interface ShapeCacheAccessor {
+public interface Accessor_ShapeCache {
     @Accessor("cache")
     BlockBehaviour.BlockStateBase.Cache getShapeCache();
 }

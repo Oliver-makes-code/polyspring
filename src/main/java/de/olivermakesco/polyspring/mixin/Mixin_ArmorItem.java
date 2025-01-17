@@ -1,6 +1,6 @@
 package de.olivermakesco.polyspring.mixin;
 
-import de.olivermakesco.polyspring.impl.ArmorInfo;
+import de.olivermakesco.polyspring.impl.Duck_ArmorInfo;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.equipment.ArmorMaterial;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ArmorItem.class)
-public class ArmorItemMixin implements ArmorInfo {
+public class Mixin_ArmorItem implements Duck_ArmorInfo {
     private ArmorMaterial material;
     private ArmorType type;
 
@@ -22,12 +22,12 @@ public class ArmorItemMixin implements ArmorInfo {
     }
 
     @Override
-    public ArmorType getArmorType() {
+    public ArmorType polyspring$getArmorType() {
         return this.type;
     }
 
     @Override
-    public ArmorMaterial getArmorMaterial() {
+    public ArmorMaterial polyspring$getArmorMaterial() {
         return this.material;
     }
 }

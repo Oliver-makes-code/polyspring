@@ -1,6 +1,6 @@
 package de.olivermakesco.polyspring.mixin;
 
-import de.olivermakesco.polyspring.impl.ToolMaterialInterface;
+import de.olivermakesco.polyspring.impl.Duck_ToolMaterialInterface;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(DiggerItem.class)
-public class DiggerItemMixin implements ToolMaterialInterface {
+public class Mixin_DiggerItem implements Duck_ToolMaterialInterface {
     private ToolMaterial material;
 
     @Inject(method = "<init>", at = @At("TAIL"))
@@ -20,7 +20,7 @@ public class DiggerItemMixin implements ToolMaterialInterface {
     }
 
     @Override
-    public ToolMaterial getToolMaterial() {
+    public ToolMaterial polyspring$getToolMaterial() {
         return this.material;
     }
 }

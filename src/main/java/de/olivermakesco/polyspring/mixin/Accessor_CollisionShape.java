@@ -6,7 +6,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
 @Mixin(BlockBehaviour.BlockStateBase.Cache.class)
-public interface CollisionShapeAccessor {
+public interface Accessor_CollisionShape {
     @Accessor("collisionShape")
     VoxelShape getCollisionShape();
 
