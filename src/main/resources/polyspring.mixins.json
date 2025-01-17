@@ -5,14 +5,9 @@
   "mixins": [
     "Accessor_CollisionShape",
     "Accessor_ShapeCache",
-    "ArmorItemMixin",
-    "CollisionShapeAccessor",
-    "DiggerItemMixin",
     "Mixin_ArmorItem",
     "Mixin_DiggerItem",
-    "Mixin_SwordItem",
-    "ShapeCacheAccessor",
-    "SwordItemMixin"
+    "Mixin_SwordItem"
   ],
   "injectors": {
     "defaultRequire": 1
