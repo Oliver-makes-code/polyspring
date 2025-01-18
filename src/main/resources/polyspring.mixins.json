@@ -1,9 +1,15 @@
 {
-	"required": true,
-	"package": "de.olivermakesco.polyspring.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [],
-	"injectors": {
-		"defaultRequire": 1
+  "required": true,
+  "package": "de.olivermakesco.polyspring.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "Accessor_CollisionShape",
+    "Accessor_ShapeCache",
+    "Mixin_ArmorItem",
+    "Mixin_DiggerItem",
+    "Mixin_SwordItem"
+  ],
+  "injectors": {
+    "defaultRequire": 1
 	}
 }

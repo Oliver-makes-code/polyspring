@@ -1,5 +1,7 @@
 package de.olivermakesco.polyspring.api;
 
+import org.jetbrains.annotations.Nullable;
+
 /// Implement this on your Item class to enable bedrock compatibility
 public interface BedrockItem {
     /// Gets the default display name of the item
@@ -18,5 +20,22 @@ public interface BedrockItem {
     /// Whether the item should have a foil
     default boolean bedrockFoil() {
         return false;
+    }
+
+    /// Whether the item can shoot projectiles
+    default boolean bedrockChargeable() {
+        return false;
+    }
+
+    /// Gets the amount of damage an item (presumably weapon) does
+    /// This is null by default so that the item description doesn't contain a damage value by default
+    @Nullable
+    default Integer bedrockDamage() {
+        return null;
+    }
+
+    /// Gets the resolution of the item's texture
+    default int bedrockTextureSize() {
+        return 16;
     }
 }
